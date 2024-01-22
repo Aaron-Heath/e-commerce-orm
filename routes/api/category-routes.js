@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   
   const categories = categoryData.map((category => category.get({plain: true})));
 
-  res.json(categories);
+  return res.json(categories);
 });
 
 router.get('/:id', async (req, res) => {
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
 
   const category = categoryData.get({plain: true});
   // be sure to include its associated Products
-  res.json(category);
+  return res.json(category);
 
 });
 
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
   });
 
   const newCategory = categoryData.get({plain: true});
-  res.json(newCategory);
+  return res.json(newCategory);
 });
 
 router.put('/:id', async (req, res) => {
@@ -57,7 +57,7 @@ router.put('/:id', async (req, res) => {
     }
   });
 
-  res.json({message: 'category updated!'});
+  return res.json({message: 'category updated!'});
 });
 
 router.delete('/:id', async (req, res) => {
@@ -70,11 +70,11 @@ router.delete('/:id', async (req, res) => {
       }
     });
 
-    res.json({message:'category deleted'});
+    return res.json({message:'category deleted'});
     
 
   } catch (err) {
-    res.json({message: err})
+    return res.json({message: err})
   }
 ;
 

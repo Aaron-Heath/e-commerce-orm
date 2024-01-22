@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
   const products = productData.map( product => product.get({plain:true}));
 
-  res.json(products);
+  return res.json(products);
   // be sure to include its associated Category and Tag data
 });
 
@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
 
   const product = productData.get({plain:true});
 
-  res.json(product);
+  return res.json(product);
   // be sure to include its associated Category and Tag data
 });
 
