@@ -123,9 +123,7 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
-  const deleted = deletedProduct.get({plain:true});
-
-  res.json(deleted);
+  res.json({message: "Product deleted"});
 });
 
 module.exports = router;
